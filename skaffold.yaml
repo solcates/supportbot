@@ -1,0 +1,16 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+metadata:
+  name: supportbot
+build:
+  artifacts:
+  - image: solcates/supportbot
+    docker: {}
+  local:
+    push: true
+deploy:
+  helm:
+    releases:
+      - name: default
+        chartPath: charts/supportbot
+        namespace: supportbot
